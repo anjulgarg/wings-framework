@@ -1,0 +1,36 @@
+{
+
+	"DEBUG_MODE" : "true",
+	
+	"CSRF_CHECK" : "true",
+	
+	"ROUTES_CLASS" : "com.app.Routes",
+	
+	"SKIP_URL" : [ 
+					"/exclude"
+				 ],
+	
+	
+	
+	"MAIL_HOST" : "smtp.gmail.com",
+	
+	"MAIL_PORT"	: "587",
+	
+	"MAIL_AUTH"	: "true",	 
+	
+	"MAIL_USERNAME" : "overpowerdev@gmail.com",
+	
+	"MAIL_PASSWORD" : "",		
+	
+	
+	
+	"DB_TYPE" : "mysql",
+	
+	"DB_NAME" : "",
+	
+	"DB_HOST" : "localhost",
+	
+	"DB_USERNAME" : "root",
+	
+	"DB_PASSWORD" : ""
+}
