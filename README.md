@@ -1,6 +1,9 @@
 # Wings Framework
 ##### A Simplistic, Fast & Flexible Micro Framework for Java Web Developers.
 
+> **Note:** This repository contains the core code of the Wings framework. If you want to build an application using Wings Framework, clone the [Wings Sample App](https://github.com/anjulgarg/wings-sample-app).
+
+
 Wings Framework was developed with a singular purpose in mind. 
 To make Java more approachable as a server side language when compared 
 to the scripting languages that rule the internet.
