@@ -33,13 +33,13 @@ public class Middleware
 	static HttpServletResponse response;
 	static HttpSession session;
 	static PrintWriter out;
-	
+
 	/**
 	 *  Default Constructor
 	 */
 	public Middleware(){}
-	
-	
+
+
 	/**
 	 * Constructor used to initialize this class with the required object values.
 	 * 
@@ -57,7 +57,7 @@ public class Middleware
 		try { out = response.getWriter(); } 
 		catch (IOException e) {	Reporter.error(e); }
 	}
-	
+
 
 	/**
 	 * Returns a parameter value supplied by a user in the request Object.
@@ -70,8 +70,8 @@ public class Middleware
 	{
 		return request.getParameter( paramName );
 	}
-	
-	
+
+
 	/**
 	 * Returns the value of an attribute from the request object.
 	 * 
@@ -83,8 +83,8 @@ public class Middleware
 	{
 		return request.getAttribute( attributeName );
 	}
-	
-	
+
+
 	/**
 	 * Inserts an attribute name and attribute value into the request object.
 	 * 
@@ -96,8 +96,8 @@ public class Middleware
 	{
 		request.setAttribute( attributeName, value );
 	}
-	
-	
+
+
 	/**
 	 * Returns the value of a parameter in the URL.
 	 * 
@@ -113,8 +113,8 @@ public class Middleware
 		}
 		return "";
 	}
-	
-	
+
+
 	/**
 	 * Returns a Map of all the form parameter names 
 	 * and their values submitted by the user in the current request.
@@ -129,14 +129,27 @@ public class Middleware
 	{
 		Enumeration<?> enumeration = request.getParameterNames();
 		Map<String, Object> paramValues = new HashMap<String, Object>();
-		
+
 		while( enumeration.hasMoreElements() )
 		{  
-	        String parameterName = (String) enumeration.nextElement();  
-	        paramValues.put( parameterName, request.getParameter(parameterName) );  
-	    }  
-		
+			String parameterName = (String) enumeration.nextElement();  
+			paramValues.put( parameterName, request.getParameter(parameterName) );  
+		}  
+
 		return paramValues;
+	}
+
+
+	/**
+	 * 
+	 * Ends the Servlet Response so that no further data
+	 * may be sent to the client. Useful in situations where
+	 * you wish to end a response in case authentication fails.
+	 * 
+	 */
+	public void stop() {
+		out.flush();
+		out.close();
 	}
 
 }
