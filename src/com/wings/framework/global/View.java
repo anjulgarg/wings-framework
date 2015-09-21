@@ -66,6 +66,9 @@ public class View {
 		catch (ViewError e) { Reporter.error(e); }
 		
 		out.write( TemplateEngine.process( templateName + ".jsp" ) );
+		
+		out.flush();
+		out.close();
 	}
 	
 
