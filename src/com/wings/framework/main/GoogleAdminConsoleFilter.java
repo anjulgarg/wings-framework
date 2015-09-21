@@ -46,7 +46,7 @@ private static final String RESOURCE_PATH = "/_ah";
 		 * The /_ah URL is used for Google Admin Console
 		 */
         if (path.toLowerCase().startsWith(RESOURCE_PATH)) {
-            request.getRequestDispatcher(path).forward(request, response);
+            request.getRequestDispatcher(path).include(request, response);
         } else {
             chain.doFilter(request, response);
         }
