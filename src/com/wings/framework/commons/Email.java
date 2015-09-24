@@ -29,7 +29,7 @@ import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletException;
 
 import com.wings.framework.errors.ViewError;
-import com.wings.framework.internal.JSPReader;
+import com.wings.framework.global.View;
 import com.wings.framework.internal.Reporter;
 import com.wings.framework.main.Config;
 
@@ -244,10 +244,7 @@ public class Email
 	 */
 	public static String template( String templateName )
 	{
-		try { checkExistance( templateName + ".jsp" ); } 
-		catch (ViewError e) { Reporter.error(e); }
-		
-		return JSPReader.read( templateName + ".jsp" );
+		return View.read( templateName );
 	}
 	
 	

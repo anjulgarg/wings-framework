@@ -60,17 +60,18 @@ public class View {
 	 */
 	public static void render( String templateName )
 	{
-		templateName = "/" + templateName;
-		
+		if( templateName.charAt(0) != '/' )
+			templateName = "/" + templateName;
+
 		try { View.checkExistance( templateName + ".jsp" ); } 
 		catch (ViewError e) { Reporter.error(e); }
-		
+
 		out.write( TemplateEngine.process( templateName + ".jsp" ) );
-		
+
 		out.flush();
 		out.close();
 	}
-	
+
 
 	/**
 	 * Redirects to the specified URL.
@@ -84,7 +85,7 @@ public class View {
 		catch (IOException e) { Reporter.error(e); }
 	}
 
-	
+
 	/**
 	 * Renders and captures the output of a JSP file as a string.
 	 * 
@@ -95,11 +96,12 @@ public class View {
 	 */
 	public static String read( String templateName )
 	{
-		templateName = "/" + templateName;
-		
+		if( templateName.charAt(0) != '/' )
+			templateName = "/" + templateName;
+
 		try { View.checkExistance( templateName + ".jsp" ); } 
 		catch (ViewError e) { Reporter.error(e); }
-		
+
 		return JSPReader.read( templateName + ".jsp" );
 	}
 
