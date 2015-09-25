@@ -29,10 +29,10 @@ import com.wings.framework.internal.Reporter;
 public class Middleware 
 {
 
-	static HttpServletRequest request;
-	static HttpServletResponse response;
-	static HttpSession session;
-	static PrintWriter out;
+	protected static HttpServletRequest request;
+	protected static HttpServletResponse response;
+	protected static HttpSession session;
+	protected static PrintWriter out;
 
 	/**
 	 *  Default Constructor
